@@ -1,0 +1,19 @@
+Práctica resuelta. 
+Chat unidireccional entre procesos.
+Señales y Pipes.
+Nombre de los programas y ficheros
+emisor.c
+receptor.c
+/tmp/tub.pipe
+log.txt
+Funcionamiento general
+Se pide crear dos programas en C que se comuniquen mediante un PIPE con nombre del sistema operativo y gestionen su finalización mediante señales.
+Emisor
+El programa Emisor (emisor.c) se encargará de leer por teclado y enviar al receptor la información leída frase a frase mediante el pipe tub.pipe.
+Cuando le llegue una señal SIGUSR1 imprimirá un mensaje de salida y finalizará la ejecución del programa.
+Deberá enviar su pid al principio de la conexión para que el receptor pueda enviarle las señales.
+Receptor
+El Receptor (receptor.c) leerá del pipe tub.pipe e imprimirá por pantalla todo lo que lea del pipe. Además deberá crear un registro de todos los mensajes recibidos llamado log.txt en el que incluirá la hora exacta en la que llegó el mensaje con el siguiente formato:
+DD/MM/AAAA (HH:MM:SS) - Contenido del mensaje
+El programa receptor cuando se pulse Ctrl-C enviará al programa emisor una señal SIGUSR1. Además imprimirá un mensaje que indique que si se vuelve a pulsar Ctrl-C el programa finalizará.
+Al pulsar Ctrl-C por segunda vez, el programa deberá finalizar.
