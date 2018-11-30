@@ -7,11 +7,12 @@ void tratarSenyal(int);
 int main(int argc, char const *argv[])
 {
     signal(SIGUSR1,tratarSenyal);
+    signal(SIGUSR2,tratarSenyal);
     signal(SIGINT,tratarSenyal);
     int i = 0;
     while (i<100){
         printf("%d\n",++i);
-        sleep(1);
+        sleep(10);
     }
     return 0;
 }
